@@ -43,8 +43,7 @@ submitBtn.addEventListener("click", (event) => {
             if (isCorrect) {
                 window.alert('Correct!');
                 // Player stat change
-                player.maxHP += 4;
-                player.currHP += 4;
+                player.currHP += 8;
             } else {
                 window.alert('Wrong answer!');
             }

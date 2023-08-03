@@ -5,7 +5,7 @@ function displayEasy () {
     .then (resp => resp.json())
     .then (data => {
         const easy = document.querySelector('#easy')
-        easy.textContent = "Recover"
+        easy.textContent = "Rejuvenate"
         const easyChoice = document.querySelector("#easyChoice")
         easyChoice.addEventListener("click", (event) => {
             event.preventDefault()
@@ -23,7 +23,7 @@ function displayMedium() {
     .then(resp => resp.json())
     .then(data => {
         const medium = document.querySelector('#medium')
-        medium.textContent = "Polish"
+        medium.textContent = "Polish Armor"
         const medChoice = document.querySelector("#medChoice")
         medChoice.addEventListener("click", (event) => {
             event.preventDefault()
@@ -41,7 +41,7 @@ function displayHard() {
     .then(resp => resp.json())
     .then(data => {
         const hard = document.querySelector('#hard')
-        hard.textContent = "Sharpen"
+        hard.textContent = "Sharpen Sword"
         const hardChoice = document.querySelector("#hardChoice")
         hardChoice.addEventListener("click", (event) => {
             event.preventDefault()
