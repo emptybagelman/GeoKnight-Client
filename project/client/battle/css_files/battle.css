@@ -3,13 +3,14 @@
 :root{
     --letter-steps: 6;
     --yellow: #FFE367;
+    --yellow-shadow: #f0c740;
     --green: #295500;
     --blue: #00002b;
     --orange: #e37100;
     --dark-orange: #c62e00;
     --white: rgb(244, 240, 231);
-    --charwidth: 150px;
-    --charheight: 250px;
+    --charwidth: 192px;
+    --charheight: 192px;
 }
 
 .hide{
@@ -20,9 +21,6 @@ body{
     margin: 0;
     padding: 0;
     aspect-ratio: 16/9;
-    background-color: rgb(216, 230, 236);
-    background-image: url('./background.png');
-    background-repeat: no-repeat;
     /* background-size: cover; */
     background-position: center;
     background-attachment: fixed;
@@ -32,12 +30,17 @@ body{
     user-select: none;
 }
 
-/* img{
+img{
+    background-image: url('./background.png');
+    background-color: rgb(216, 230, 236);
+    background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
-    left: -25px;
-    width: 110vw;
+    top: 0;
+    left: -10%;
+    width: 120vw;
     height: 100vh;
-} */
+}
 
 .shake{
     animation: horizontal-shake 0.3s forwards;
@@ -51,10 +54,71 @@ body{
     z-index: 5;
 }
 
-/* .player{
-    left: 10%;
-    background-color: rgb(149, 125, 216);
-} */
+/* Lanxe - Animations for id = player */
+#player {
+    left: 30%;
+    bottom: 30%;
+    width: 192px;
+    height: 192px;
+    background-image: url('./knight_idle_sheet.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+}
+    
+#player.attack {
+    background-image: url('./knight_attack_sheet.png');
+    animation: playerAttack 0.2s steps(4) 1; /* Apply the attack animation */
+}
+
+/* Lanxe - Animations for class = enemy */
+#en0 {
+    right: 35%;
+    bottom: 30%;
+    width: 192px;
+    height: 192px;
+    background-image: url('./enemy_idle_sheet.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+}
+
+#en1 {
+    right: 20%;
+    bottom: 30%;
+    width: 192px;
+    height: 192px;
+    background-image: url('./enemy_idle_sheet.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+}
+
+#en2 {
+    right: 5%;
+    bottom: 30%;
+    width: 192px;
+    height: 192px;
+    background-image: url('./enemy_idle_sheet.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+}
+    
+#en0.attack {
+    background-image: url('./enemy_attack_sheet.png');
+    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
+}
+
+#en1.attack {
+    background-image: url('./enemy_attack_sheet.png');
+    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
+}
+
+#en2.attack {
+    background-image: url('./enemy_attack_sheet.png');
+    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
+}
 
 .healthbar{
     position: absolute;
@@ -126,22 +190,6 @@ body{
     z-index: -1;
 }
 
-/* .enemy{
-    background-color: rgb(69, 248, 14);
-}
-
-#en0{
-    right: 35%;
-}
-
-#en1{
-    right: 20%;
-}
-
-#en2{
-    right: 5%;
-} */
-
 .fight-container{
     display: inline-block;
     width: 50vw;
@@ -204,6 +252,13 @@ body{
     border-radius: 10px;
     box-shadow: 0 -15px 0 0 var(--dark-orange) inset;
     outline: black 2px solid;
+    transition: 0.1s ease-in-out;
+}
+
+#attack-btn:hover{
+    background-color: var(--yellow);
+    box-shadow: 0 -15px 0 0 var(--yellow-shadow) inset;
+    transition: 0.1s ease-in-out;
 }
 
 .hurt{
@@ -212,6 +267,22 @@ body{
 
 .dead{
     animation: dead 1s ease-in;
+}
+
+#transition-element{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 999;
+    display: none;
+    filter: opacity(0);
+}
+
+.changing-frame{
+    animation: fade 1s forwards;
 }
 
 @keyframes horizontal-shake {
@@ -239,11 +310,17 @@ body{
     100%{height: 0px}
 }
 
+@keyframes fade{
+    0%{filter: opacity(0)}
+    100%{filter:opacity(1)}
+}
 
 @media only screen and (max-height:900px), (max-width:1400px){
-    .char{
-        height: calc(var(--charheight)*0.8);
-        width: calc(var(--charwidth)*0.8);
+    #player{
+        left: 20%;
+    }
+    .healthbar,.dmgstat{
+        top: 0;
     }
     .healthbar::before{
         width: 35px;
@@ -251,6 +328,9 @@ body{
         background-size: 35px 35px;
         left: -17px;
         top: -8px;
+    }
+    #en1>*{
+        top: -30%;
     }
     .healthbar>span{
         left: -14px;
@@ -260,7 +340,7 @@ body{
         width: 75px;
         height: 75px;
         background-size: 75px 75px;
-        left: -29px;
+        left: -25px;
         top: -35px;
     }
     
@@ -275,103 +355,22 @@ body{
         padding: 20px 25px;
         bottom: 1%;
     }
-<<<<<<< HEAD
-} */
-
-/* Lanxe - Animations for id = player */
-#player {
-    left: 35%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./knight_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-    
-#player.attack {
-    background-image: url('./knight_attack_sheet.png');
-    animation: playerAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-    
-@keyframes playerIdle {
-    0% { background-position: 0 0; }
-    100% { background-position: -1152px 0; }
-}
-    
-@keyframes playerAttack {
-    0% { background-position: 0 0; }
-    100% { background-position: -768px 0; }
-}
-
-/* Lanxe - Animations for class = enemy */
-#en0 {
-    right: 35%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-
-#en1 {
-    right: 20%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-
-#en2 {
-    right: 5%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-    
-#en0.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-
-#en1.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-
-#en2.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-    
-@keyframes enemyIdle {
-    0% { background-position: 0 0; }
-    100% { background-position: -1152px 0; }
-}
-    
-@keyframes enemyAttack {
-    0% { background-position: 0 0; }
-    100% { background-position: -768px 0; }
-}
-
-=======
 
 }
 
 @media only screen and (max-width:680px){
-    .char{
-        width: calc(var(--charwidth)*0.5);
-        height: calc(var(--charheight)*0.5);
+    #player{
+        left: 0;
+        top: 50%;
+    }
+    #en0,#en1,#en2{
+        top: 50%;
+    }
+    .healthbar{
+        width: 50%;
+        height: 7%;
+        left: 20%;
+        top: 8%;
     }
     .healthbar::before{
         width: 25px;
@@ -385,8 +384,17 @@ body{
         left: -15px;
         top: -2px;
     }
+    #en1>*{
+        top: -10%;
+    }
+    .dmgstat{
+        top: 8%;
+        right: 15%;
+        width: 8%;
+        height: 7%;
+    }
     .fight-container{
-        width: 90%;
+        width: 75%;
         font-size: 0.5em;
         height: 80px;
     }
@@ -408,4 +416,26 @@ body{
         bottom: 3%;
     }
 }
->>>>>>> 713f854e06a5da1ca443822688e0d84a542e2d78
+
+
+    
+@keyframes playerIdle {
+    0% { background-position: 0 0; }
+    100% { background-position: -1152px 0; }
+}
+    
+@keyframes playerAttack {
+    0% { background-position: 0 0; }
+    100% { background-position: -768px 0; }
+}
+    
+@keyframes enemyIdle {
+    0% { background-position: 0 0; }
+    100% { background-position: -1152px 0; }
+}
+    
+@keyframes enemyAttack {
+    0% { background-position: 0 0; }
+    100% { background-position: -768px 0; }
+}
+

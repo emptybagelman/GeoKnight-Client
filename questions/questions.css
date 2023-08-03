@@ -1,0 +1,155 @@
+:root {
+    --yellow: #FFE367;
+    --green: #295500;
+    --blue: #00002b;
+    --orange: #e37100;
+    --dark-orange: #c62e00;
+    --white: rgb(244, 240, 231);
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+#color {
+    background-color: var(--blue);
+    padding: 0;
+}
+
+@media only screen and (max-width: 10000px) {
+    #question {
+        width: 60vw;
+    }
+    #main {
+        background-color: var(--white);
+        padding: 200px 30px;
+    }
+}
+
+@media only screen and (max-width: 1450px) {
+    #question {
+        width: 60vw;
+    }
+    #main {
+    background-color: var(--white);
+    padding: 40px 0;
+}
+}
+
+@media only screen and (max-width: 750px) {
+    #question {
+        width: 100%;
+    }
+    #main {
+    background-color: var(--white);
+    padding: 0;
+}
+}
+
+#main, #side-section {
+    text-align: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    position: relative;
+}
+
+
+
+
+h2 {
+    padding: 20px;
+    margin: 0 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.9rem;
+    font-family: 'Roboto';
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+
+#question {
+    padding: 20px 65px;
+    margin-bottom: 50px;
+
+}
+
+.answers {
+    flex-wrap: wrap;
+}
+
+.space, #stats {
+    padding: 15px 40px;
+    margin: 40px;
+}
+
+.title {
+    align-items: center;
+    margin-top: 20px;
+}
+
+.c-left, .c-right {
+    position: relative;
+    align-items: center;
+}
+
+.i-left, .i-right {
+    position: absolute;
+    cursor: pointer;
+
+}
+
+.i-left {
+    right: 15px;
+}
+
+.i-right {
+    left: 15px;
+}
+
+#side-section {
+    align-items: flex-end;
+    justify-content: center;
+    height: 100vh;
+    width: 30vw;
+    margin: 0;
+    background-image: url("bg1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#stats {
+    background-color: var(--green);
+    color: var(--white);
+    align-items: flex-end;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+}
+
+button:hover, #stats:hover {
+    background-color: var(--yellow);
+    color: black
+}
+
+.btn-1 {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 1px;
+    font-size: 2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoKnight</title>
+    <link rel="stylesheet" href="./css_files/battle.css">
+    <script type="module" src="./battle_logic.js"></script>
+    <script type="module" src="./battle_rendering.js"></script>
+    <script type="script" src="./battle.js"></script>
+    <script defer src="./animation.js"></script>
+</head>
+<body>
+    <!-- Removed static background but enemy shifting logic gets broken if line below is removed. Dynamic background is now in CSS. -->
+    <img id="background" src=""> 
+    <div class="char player" id="player">
+        <span></span>
+        <div class="healthbar"><span>0</span></div>
+        <div class="dmgstat">0</div>
+    </div>
+    <!-- ENEMIES IN-LINE WITH ELEMENTS HERE -->
+    <div class="fight-container">
+        <p>ATTACK</p>
+    </div>
+    <div id="attack-btn">ATTACK</div>
+    <div id="transition-element"></div>
+</body>
+</html>

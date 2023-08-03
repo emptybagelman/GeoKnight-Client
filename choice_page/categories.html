@@ -11,43 +11,66 @@
         <title>Categories</title>
     </head>
     <body>
-        <h2>Categories</h2>
+        <section id="main">
+            <div class="container title">
+                <h2>Categories</h2>
 
-        <!-- START -->
-        <div id="categories">
-    
-            <button type="button" id="easyChoice">
-                <div id="easy" class="choices">
-                    <img src="./bg2.png" alt="" srcset="">
-                    <ul>
-                        <li> </li>
-                        <li> </li>
-                    </ul>
+                <!-- START -->
+                <div id="categories">
+            
+                    <button type="button" id="easyChoice">
+                        <div id="easy" class="choices">
+                            <img src="./bg2.png" alt="" srcset="">
+                            <ul>
+                                <li> </li>
+                                <li> </li>
+                            </ul>
+                        </div>
+                    </button>
+            
+                    <button type="button" id="medChoice">
+                        <div id="medium" class="choices">
+                            <img src="./bg2.png" alt="" srcset="">
+                            <ul>
+                                <li> </li>
+                                <li> </li>
+                            </ul>
+                        </div>
+                    </button>
+            
+                    <button type="button" id="hardChoice">
+                        <div id="hard" class="choices">
+                            <img src="./bg2.png" alt="" srcset="">
+                            <ul>
+                                <li> </li>
+                                <li> </li>
+                            </ul>
+                        </div>
+                    </button>
                 </div>
-            </button>
-    
-            <button type="button" id="medChoice">
-                <div id="medium" class="choices">
-                    <img src="./bg2.png" alt="" srcset="">
-                    <ul>
-                        <li> </li>
-                        <li> </li>
-                    </ul>
-                </div>
-            </button>
-    
-            <button type="button" id="hardChoice">
-                <div id="hard" class="choices">
-                    <img src="./bg2.png" alt="" srcset="">
-                    <ul>
-                        <li> </li>
-                        <li> </li>
-                    </ul>
-                </div>
-            </button>
-        </div>
-        <!-- END -->
-
+                <!-- END -->
+            </div>
+        </section>
+        
+        <section class="d-none d-md-flex" id="side-section">
+            <div class="char player" id="player"></div>
+            <div id="stats-disp">
                 
+                <div id="hp-disp-grp">
+                    <span>HP</span>
+                    <span class="stat" id="currhp-disp"></span>
+                    <span> / </span>
+                    <span class="stat" id="maxhp-disp"></span>
+                    <br>
+                </div>
+            
+                <div>
+                    <p id="atk-disp-grp">
+                        <span>ATK</span>
+                        <span class="stat" id="atk-disp"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
