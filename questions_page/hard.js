@@ -40,6 +40,8 @@ submitBtn.addEventListener("click", (event) => {
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
                 window.alert('Correct!');
+                // Player stat change
+                player.attack += 3;
             } else {
                 window.alert('Wrong answer!');
             }
@@ -53,4 +55,3 @@ submitBtn.addEventListener("click", (event) => {
 });
 
 displayHardQuestion();
-

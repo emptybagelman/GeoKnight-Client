@@ -7,6 +7,14 @@
     --white: rgb(244, 240, 231);
 }
 
+:root {
+    --primary-bg: #05041C;
+    --main-btn: #E37100;
+    --secondary-btn: #31A5D3;
+    --tertiary-btn: #24A894;
+    --hover: #FFE367;
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -14,12 +22,15 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
+    color: white;
 }
 
 #color {
-    background-color: var(--blue);
+    background-color: var(--primary-bg);
     padding: 0;
 }
+
+
 
 @media only screen and (max-width: 10000px) {
     #question {
@@ -54,12 +65,12 @@ body {
 #main, #side-section {
     text-align: center;
     justify-content: center;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Roboto Mono', monospace;
     position: relative;
+    height: 100vh;
+    background-color: var(--primary-bg);
+    color: white;
 }
-
-
-
 
 h2 {
     padding: 20px;
@@ -67,8 +78,8 @@ h2 {
     justify-content: center;
     align-items: center;
     font-size: 1.9rem;
-    font-family: 'Roboto';
-    border-top: 1px solid;
+    font-family: 'Roboto Mono', monospace;
+    border-top: 1px solid;  
     border-bottom: 1px solid;
 }
 
@@ -76,7 +87,7 @@ h2 {
 #question {
     padding: 20px 65px;
     margin-bottom: 50px;
-
+    margin-top:20px;
 }
 
 .answers {
@@ -93,68 +104,88 @@ h2 {
     margin-top: 20px;
 }
 
-.c-left, .c-right {
-    position: relative;
-    align-items: center;
-}
-
-.i-left, .i-right {
-    position: absolute;
-    cursor: pointer;
-
-}
-
-.i-left {
-    right: 15px;
-}
-
-.i-right {
-    left: 15px;
-}
 
 #side-section {
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    display: block;
+    padding-top: 300px;
+    /* position: absolute; */
+    /* bottom: 50px; */
     height: 100vh;
     width: 30vw;
     margin: 0;
     background-image: url("bg1.png");
     background-position: center;
     background-repeat: no-repeat;
+    color: white;
 }
 
-#stats {
+/* #stats {
     background-color: var(--green);
     color: var(--white);
     align-items: flex-end;
     justify-content: center;
-}
+} */
 
-button {
+#submit-btn {
     border: none;
-    transition: all 0.1s ease-in;
-    cursor: pointer;
+    height: 4rem;
+    width: 12rem;
+    background-color: var(--secondary-btn);
+    font-size: 20px;
 }
 
-button:hover, #stats:hover {
-    background-color: var(--yellow);
-    color: black;
-}
 
-button:focus {
-    background-color: var(--yellow);
-    color: black;
-}
 
 .btn-1 {
-    background-color: var(--orange);
-    color: var(--white);
+    border: none;
+    height: 6rem;
+    width: 12rem;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+    color: black;
+    font-size: 25px;
+    background-color: var(--main-btn);
 }
 
-.close {
+.btn-1:focus {
+    background-color: var(--hover) !important;
+    color: black;
+}
+
+#option1:hover, #option2:hover, #option3:hover, #option4:hover, #submit-btn:hover, #stats:hover, .btn-1:hover {
+    background-color: var(--yellow);
+    color: black;
+}
+
+#hp-disp-grp {
+    padding-top: 100px;
+    font-size: 20px;
+}
+
+#atk-disp-grp {
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: left;
+}
+
+
+/* Player Animation */
+
+#player {
+    align-items: center;
+    bottom: 30%;
+    width: 384px;
+    height: 384px;
+    background-image: url('../choice_page/choice-icons/knight_idle_sheet_l.png');
+    background-repeat: no-repeat;
     position: absolute;
-    right: 20px;
-    top: 1px;
-    font-size: 2rem;
-    cursor: pointer;
+
+    animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+}
+
+@keyframes playerIdle {
+    0% { background-position: 0 0; }
+    100% { background-position: -2304px 0; }
 }

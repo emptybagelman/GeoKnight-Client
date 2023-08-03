@@ -40,6 +40,9 @@ submitBtn.addEventListener("click", (event) => {
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
                 window.alert('Correct!');
+                // Player stat change
+                player.maxHP += 4;
+                player.currHP += 4;
             } else {
                 window.alert('Wrong answer!');
             }
