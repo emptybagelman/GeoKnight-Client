@@ -24,12 +24,15 @@ main {
     font-family: 'Roboto Mono', monospace;
 }
 
-#score {
+#scoreContainer {
     display: flex;
     flex-direction: column;
     margin-top: 150px;
     height: 50%;
     align-items: center;
+    /* background-color: #ffe367; */
+    width: 100%;
+    height: 100%;
 }
 
 #form {
@@ -39,6 +42,9 @@ main {
     height: 50%;
     align-items: center;
     margin-top: 10px;
+    /* background-color: antiquewhite; */
+    width: 100%;
+    height: 100%;
 }
 
 .graphics {
@@ -55,8 +61,15 @@ img {
     margin-left: 200px;
 }
 
+#current-player {
+    font-size: 60px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
-    font-size: 50px;
+    font-size: 30px;
     margin-bottom: 0;
     color: white;
 }
@@ -66,13 +79,14 @@ h3 {
     color: white;
 }
 
-#name {
+#username_input {
     width: 25rem;   
     height: 3.9rem;
     font-family: 'Roboto Mono', monospace;
     font-size: 20px;
     margin-top: 25px;
     border: none;
+    padding-left: 20px;
 }
 
 #submit {
