@@ -275,96 +275,6 @@ body{
         padding: 20px 25px;
         bottom: 1%;
     }
-<<<<<<< HEAD
-} */
-
-/* Lanxe - Animations for id = player */
-#player {
-    left: 35%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./knight_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-    
-#player.attack {
-    background-image: url('./knight_attack_sheet.png');
-    animation: playerAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-    
-@keyframes playerIdle {
-    0% { background-position: 0 0; }
-    100% { background-position: -1152px 0; }
-}
-    
-@keyframes playerAttack {
-    0% { background-position: 0 0; }
-    100% { background-position: -768px 0; }
-}
-
-/* Lanxe - Animations for class = enemy */
-#en0 {
-    right: 35%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-
-#en1 {
-    right: 20%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-
-#en2 {
-    right: 5%;
-    bottom: 30%;
-    width: 192px;
-    height: 192px;
-    background-image: url('./enemy_idle_sheet.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    animation: enemyIdle 0.5s steps(6) infinite; /* Apply the idle animation */
-}
-    
-#en0.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-
-#en1.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-
-#en2.attack {
-    background-image: url('./enemy_attack_sheet.png');
-    animation: enemyAttack 0.2s steps(4) 1; /* Apply the attack animation */
-}
-    
-@keyframes enemyIdle {
-    0% { background-position: 0 0; }
-    100% { background-position: -1152px 0; }
-}
-    
-@keyframes enemyAttack {
-    0% { background-position: 0 0; }
-    100% { background-position: -768px 0; }
-}
-
-=======
 
 }
 
@@ -408,4 +318,3 @@ body{
         bottom: 3%;
     }
 }
->>>>>>> 713f854e06a5da1ca443822688e0d84a542e2d78
