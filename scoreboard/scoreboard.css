@@ -1,0 +1,28 @@
+:root {
+    --primary-bg: #05041c; 
+    --main-btn: #E37100; 
+    --secondary-btn: #31A5D3; 
+    --tertiary-btn: #24A894;
+    --hover: #ffe367; 
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-bg);
+    color: white;
+    margin: 0;
+    flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+li {
+    list-style: none;
+    font-size: 20px;
+}
