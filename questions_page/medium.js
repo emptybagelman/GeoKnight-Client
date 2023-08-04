@@ -1,3 +1,5 @@
+import { updateLoop, resetLoop,increaseDifficulty,addToScore,updateStat} from "../player.js";
+
 let selectedAnswer = null;
 let questionData = null; 
 
@@ -7,7 +9,7 @@ function displayMediumQuestion () {
     const option2 = document.querySelector('#option2')
     const option3 = document.querySelector('#option3')
     const option4 = document.querySelector('#option4')
-    fetch ('http://localhost:3000/levels/medium/random')
+    fetch ('https://geoknightbackend.onrender.com/levels/medium/random')
     .then (resp => resp.json())
     .then (data => {
         questionData = data;
@@ -35,14 +37,14 @@ const submitBtn = document.querySelector('#submit-btn');
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     if (selectedAnswer) {
+        updateLoop();
         if (questionData) {
             let correctAnswer = questionData.correctChoice;
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
+                addToScore()
+                updateStat("maxHP",4);
                 window.alert('Correct!');
-                // Player stat change
-                player.maxHP += 4;
-                player.currHP += 4;
             } else {
                 window.alert('Wrong answer!');
             }
@@ -52,7 +54,13 @@ submitBtn.addEventListener("click", (event) => {
     } else {
         window.alert('Please select an answer before submitting.');
     }
-    window.location.href = "../choice_page/categories.html";
+    if(sessionStorage.getItem("loop") == 3){
+        resetLoop();
+        increaseDifficulty();
+        window.location.href = "../battle/index.html";
+    }else{
+        window.location.href = "../choice_page/categories.html";
+    }
 });
 
 displayMediumQuestion();

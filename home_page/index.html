@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,46 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <!-- <script src="./popup.js"></script> -->
 </head>
+
 <body>
-    <section class="image"> 
+    <section class="image">
         <img class="bg-image" src="./home_bg_left.png" alt="abstract image of earth shattering">
     </section>
+
     <section class="menu">
+
         <div class="logo_container">
             <img class="logo" src="./logo_s.png" alt="">
         </div>
-        <div class="btn"> 
-            <a href = "" > Rules </a>
+
+        <div class="btn">
+            <a href="#" id="rulesLink" onclick="openPopup()">Rules</a>
+            <div class="popup" id="popup">
+                <h2>Rules</h2>
+                <p> Lorem ipsum </p>
+                <button type="button" onclick="closePopup()"> OK </button>
+            </div>
             <button class="start"> Start </button>
             <button class="scoreboard"> Scoreboard </button>
             <button class="credits"> Credits </button>
         </div>
+
     </section>
+
+    <script>
+        let popup = document.getElementById('popup')
+        function openPopup() {
+            popup.classList.add('open-popup')
+        }
+        function closePopup() {
+            popup.classList.remove('open-popup')
+        }
+    </script>
+
 </body>
+
 </html>

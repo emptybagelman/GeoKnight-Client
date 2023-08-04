@@ -1,13 +1,14 @@
 function displayScore() {
-    fetch("http://localhost:3000/scoreboard/current-player")
+    fetch("https://geoknightbackend.onrender.com/scoreboard/current-player")
         .then(resp => resp.json())
         .then(data => {
+            console.log("doing")
             const scoreboard = data
             const usernameElement = document.querySelector('#current-player')
             const scoreElement = document.querySelector('#score')
 
             usernameElement.textContent = scoreboard["name"]
-            scoreElement.textContent = scoreboard["score"]
+            scoreElement.textContent = Number(sessionStorage.getItem("score"));
         })
 }
 
@@ -23,7 +24,7 @@ async function createUsername(e) {
         body: JSON.stringify(data)
     }
 
-    const response = await fetch("http://localhost:3000/scoreboard/current-player", options)
+    const response = await fetch("https://geoknightbackend.onrender.com/scoreboard/current-player", options)
 
     
     if (response.status == 201) {
@@ -34,7 +35,15 @@ async function createUsername(e) {
 
 }
 
+document.getElementById("homepage").addEventListener("click", () => {
+    window.location.href = "../index.html";
+})
+
 const form = document.querySelector("#create-username");
 form.addEventListener("submit", createUsername);
+
+const h3 = document.getElementById("scoreID");
+
+h3.textContent = sessionStorage.getItem("score");
 
 displayScore()

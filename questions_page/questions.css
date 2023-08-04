@@ -1,18 +1,27 @@
 :root {
     --yellow: #FFE367;
+    --yellow-shadow: #f0c740;
     --green: #295500;
     --blue: #00002b;
+    --secondary-btn: #31A5D3;
+    --blue-shadow: #266b86;
+    --tertiary-btn: #24A894;
+    --green-shadow: #1e6358;
     --orange: #e37100;
     --dark-orange: #c62e00;
     --white: rgb(244, 240, 231);
 }
 
 :root {
-    --primary-bg: #05041C;
-    --main-btn: #E37100;
+    --primary-bg: #05041c; 
+    --main-btn: #E37100; 
+    --dark-orange: #c62e00;
     --secondary-btn: #31A5D3;
+    --blue-shadow: #266b86;
     --tertiary-btn: #24A894;
-    --hover: #FFE367;
+    --green-shadow: #1e6358;
+    --hover: #ffe367;
+    --yellow-shadow: #f0c740;
 }
 
 body {
@@ -22,15 +31,20 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
-    color: white;
+    z-index: 1;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    /* background-color: #1e6358; */
 }
 
 #color {
     background-color: var(--primary-bg);
     padding: 0;
 }
-
-
 
 @media only screen and (max-width: 10000px) {
     #question {
@@ -72,6 +86,12 @@ body {
     color: white;
 }
 
+#main {
+    padding-top: 0;
+    margin-top: 50px;
+}
+
+
 h2 {
     padding: 20px;
     margin: 0 30px;
@@ -87,7 +107,7 @@ h2 {
 #question {
     padding: 20px 65px;
     margin-bottom: 50px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .answers {
@@ -104,21 +124,21 @@ h2 {
     margin-top: 20px;
 }
 
-
 #side-section {
     align-items: center;
-    justify-content: center;
-    display: block;
-    padding-top: 300px;
+    justify-content: space-between;
+    /* display: block; */
+    padding-top: 100px;
     /* position: absolute; */
     /* bottom: 50px; */
     height: 100vh;
     width: 30vw;
     margin: 0;
-    background-image: url("bg1.png");
-    background-position: center;
-    background-repeat: no-repeat;
+    /* background-image: url("bg1.png"); */
+    /* background-position: center;
+    background-repeat: no-repeat; */
     color: white;
+    margin-top: 0;
 }
 
 /* #stats {
@@ -128,25 +148,35 @@ h2 {
     justify-content: center;
 } */
 
-#submit-btn {
+button {
     border: none;
-    height: 4rem;
-    width: 12rem;
-    background-color: var(--secondary-btn);
-    font-size: 20px;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+    outline: solid black 2px;
 }
 
+button:hover, #stats:hover {
+    box-shadow: 0 -5px 0 0 var(--yellow-shadow) inset;
+    background-color: var(--yellow);
+    color: black;
+}
 
+button:focus {
+    background-color: var(--yellow);
+    box-shadow: 0 -5px 0 0 var(--yellow-shadow) inset;
+    color: black;
+}
 
 .btn-1 {
-    border: none;
+    background-color: var(--main-btn);
+    color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 -5px 0 0 var(--dark-orange) inset;
     height: 6rem;
     width: 12rem;
-    transition: all 0.1s ease-in;
     cursor: pointer;
     color: black;
     font-size: 25px;
-    background-color: var(--main-btn);
 }
 
 .btn-1:focus {
@@ -154,22 +184,44 @@ h2 {
     color: black;
 }
 
-#option1:hover, #option2:hover, #option3:hover, #option4:hover, #submit-btn:hover, #stats:hover, .btn-1:hover {
-    background-color: var(--yellow);
-    color: black;
+.close {
+    position: absolute;
+    right: 20px;
+    top: 1px;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 #hp-disp-grp {
     padding-top: 100px;
     font-size: 20px;
+    margin-left: 100px;
 }
 
 #atk-disp-grp {
     padding-top: 10px;
     font-size: 20px;
     text-align: left;
+    margin-left: 100px;
 }
 
+#submit-btn{
+    padding: 10px 30px;
+    background-color: var(--tertiary-btn);
+    box-shadow: 0 -5px 0 0 var(--green-shadow) inset;
+    border-radius: 10px;
+    color: black;
+    border: 1px black solid;
+    height: 4rem;
+    width: 12rem;
+    font-size: 20px;
+}
+
+#submit-btn:hover{
+    color: black;
+    background-color: var(--yellow);
+    box-shadow: 0 -5px 0 0 var(--yellow-shadow) inset;
+}
 
 /* Player Animation */
 
@@ -189,3 +241,18 @@ h2 {
     0% { background-position: 0 0; }
     100% { background-position: -2304px 0; }
 }
+
+
+/* #player {
+    align-items: center;
+    bottom: 30%;
+    width: 384px;
+    height: 384px;
+    background-image: url('../battle/css_files/knight_idle_sheet.png');
+    background-repeat: no-repeat;
+    background-size: auto 768px;
+    position: absolute;
+    transform: rotateY(180deg);
+    z-index: 1;
+    animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */
+/* } */

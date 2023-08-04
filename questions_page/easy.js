@@ -1,7 +1,7 @@
+import { updateLoop, resetLoop, increaseDifficulty,addToScore,updateStat} from "../player.js";
+
 let selectedAnswer = null;
 let questionData = null; 
-
-console.log(player.maxHP)
 
 function displayEasyQuestion () {
     const displayedquestion = document.querySelector('h3')
@@ -9,9 +9,9 @@ function displayEasyQuestion () {
     const option2 = document.querySelector('#option2')
     const option3 = document.querySelector('#option3')
     const option4 = document.querySelector('#option4')
-    fetch ('http://localhost:3000/levels/easy/random')
-    .then (resp => resp.json())
-    .then (data => {
+    fetch ('https://geoknightbackend.onrender.com/levels/easy/random')
+        .then (resp => resp.json())
+        .then (data => {
         questionData = data;
         displayedquestion.textContent = questionData.question
         option1.textContent = questionData.choice1
@@ -37,13 +37,16 @@ const submitBtn = document.querySelector('#submit-btn');
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     if (selectedAnswer) {
+        updateLoop();
         if (questionData) {
             let correctAnswer = questionData.correctChoice;
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
+                // let option = `#option${selectedAnswer.slice(-1)}`;
+                // button = document.getElementById(option);
                 window.alert('Correct!');
-                // Player stat change
-                player.currHP += 8;
+                addToScore();
+                updateStat("currHP",8);
             } else {
                 window.alert('Wrong answer!');
             }
@@ -53,7 +56,13 @@ submitBtn.addEventListener("click", (event) => {
     } else {
         window.alert('Please select an answer before submitting.');
     }
-    window.location.href = "../choice_page/categories.html";
+    if(sessionStorage.getItem("loop") == 3){
+        resetLoop();
+        increaseDifficulty();
+        window.location.href = "../battle/index.html";
+    }else{
+        window.location.href = "../choice_page/categories.html";
+    }
 });
 
 displayEasyQuestion();

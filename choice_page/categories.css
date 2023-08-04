@@ -10,9 +10,11 @@
 :root {
     --primary-bg: #05041c; 
     --main-btn: #E37100; 
+    --dark-orange: #c62e00;
     --secondary-btn: #31A5D3; 
     --tertiary-btn: #24A894;
     --hover: #ffe367; 
+    --yellow-shadow: #f0c740;
 }
 
 body {
@@ -95,7 +97,7 @@ h2 {
 }
 
 button {
-    color: black;
+    color: white;
     background-color: var(--main-btn);
     width: 24rem;
     height: 8rem;
@@ -103,11 +105,18 @@ button {
     color: var(--main-btn);
     border: none;
     position: relative;
+    box-shadow: 0 -10px 0 0 var(--dark-orange) inset;
+    border-radius: 10px;
+    transition: 0.1s ease-in-out;
+    outline: solid black 2px;
 }
 
 button:hover {
     background-color: var(--hover);
+    box-shadow: 0 -10px 0 0 var(--yellow-shadow) inset;
     color: black;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
 }
 
 li {
@@ -119,7 +128,7 @@ li {
     width: 90px;
     height: 90px;
     content: "";
-    background-image: url("./choice-icons/rejuvenate.png");
+    background-image: url("./choice_icons/rejuvenate.png");
     background-size: 90px 90px;
     position: absolute;
     top: 15%;
@@ -130,7 +139,7 @@ li {
     width: 90px;
     height: 90px;
     content: "";
-    background-image: url("./choice-icons/polish.png");
+    background-image: url("./choice_icons/polish.png");
     background-size: 90px 90px;
     position: absolute;
     top: 15%;
@@ -141,7 +150,7 @@ li {
     width: 90px;
     height: 90px;
     content: "";
-    background-image: url("./choice-icons/sharpen.png");
+    background-image: url("./choice_icons/sharpen.png");
     background-size: 90px 90px;
     position: absolute;
     top: 15%;
@@ -179,10 +188,11 @@ li {
     /* bottom: 30%; */
     width: 384px;
     height: 384px;
-    background-image: url('./choice-icons/knight_idle_sheet_l.png');
+    background-image: url('./choice_icons/knight_idle_sheet_l.png');
     background-repeat: no-repeat;
     /* position: absolute; */
     display: flex;
+    transform: rotateY(180deg) translateX(50px);
     /* background-color: #ffe367; */
 
     animation: playerIdle 0.5s steps(6) infinite; /* Apply the idle animation */

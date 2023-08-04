@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./questions.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a1957a0d1d.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"> 
-        <link rel="shortcut icon" href="../choice_page/choice-icons/favicon.png" type="image/x-icon">
-        <script defer src="./easy.js"></script>
-        <script defer src="../choice_page/stats_update.js"></script>
+        <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@100;300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+        <script type="module" src="./easy.js"></script>
+        <script defer src="./stats_update.js"></script>
         <title>Questions</title>
     </head>
     <body id="color">
@@ -20,7 +20,7 @@
             
             <div class="container title">
                 <div class="row">
-                    <div class="c-left col d-none d-md-flex" style="margin-top: 10px;">
+                    <div id="cont" class="c-left col d-none d-md-flex" style="margin-top: 10px; padding-top: 0;">
                     </div>
                     <div class="col col-md-5">
                         <h2> Question </h2>
@@ -29,8 +29,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <h3 id="question"> </h3>
+
             <div class="container answers">
                 <div class="row">
                     <button class="col space btn-1" type="submit" id="option1"> </button>
@@ -48,7 +49,6 @@
             <div class="char player" id="player"></div>
             <div id="stats-disp">
                 
-
                 <div id="hp-disp-grp">
                     <span>HP</span>
                     <span class="stat" id="currhp-disp"></span>

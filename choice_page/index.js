@@ -1,7 +1,7 @@
 const categories = document.querySelector('#categories')
 
 function displayEasy () {
-    fetch('http://localhost:3000/levels/easy')
+    fetch('https://geoknightbackend.onrender.com/levels/easy')
     .then (resp => resp.json())
     .then (data => {
         const easy = document.querySelector('#easy')
@@ -19,7 +19,7 @@ function displayEasy () {
 
 
 function displayMedium() {
-    fetch('http://localhost:3000/levels/medium')
+    fetch('https://geoknightbackend.onrender.com/levels/medium')
     .then(resp => resp.json())
     .then(data => {
         const medium = document.querySelector('#medium')
@@ -37,7 +37,7 @@ function displayMedium() {
 
 
 function displayHard() {
-    fetch('http://localhost:3000/levels/hard')
+    fetch('https://geoknightbackend.onrender.com/levels/hard')
     .then(resp => resp.json())
     .then(data => {
         const hard = document.querySelector('#hard')
@@ -56,5 +56,3 @@ function displayHard() {
 displayMedium()
 displayEasy()
 displayHard()
-
-
