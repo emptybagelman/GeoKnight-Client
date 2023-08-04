@@ -76,13 +76,8 @@ h2 {
     flex-direction: column;
 }
 
-<<<<<<< HEAD:categories/categories.css
-#choices {
-    margin: 20px;
-=======
 .choices {
     /* margin: 20px; */
->>>>>>> d093ec6639ce6637de863dd777fb8d5f82918b80:choice_page/categories.css
     padding: 30px 0;
     font-size: 20px;
     text-align: left;
@@ -93,23 +88,13 @@ h2 {
     font-family: 'Space Mono', monospace;
 }
 
-<<<<<<< HEAD:categories/categories.css
-#choices img {
-    width: 70%;
-=======
 .choices {
     /* width: 70%; */
->>>>>>> d093ec6639ce6637de863dd777fb8d5f82918b80:choice_page/categories.css
     padding-bottom: 20px;
     font-size: 25px;
 }
 
-<<<<<<< HEAD:categories/categories.css
-a {
-    text-decoration: none;
-=======
 button {
->>>>>>> d093ec6639ce6637de863dd777fb8d5f82918b80:choice_page/categories.css
     color: black;
     background-color: var(--main-btn);
     width: 24rem;
@@ -120,21 +105,13 @@ button {
     position: relative;
 }
 
-<<<<<<< HEAD:categories/categories.css
-#choices:hover {
-    border: 2px solid var(--white);
-=======
 button:hover {
     background-color: var(--hover);
     color: black;
->>>>>>> d093ec6639ce6637de863dd777fb8d5f82918b80:choice_page/categories.css
 }
 
 /* li {
     list-style: none;
-<<<<<<< HEAD:categories/categories.css
-} */
-=======
 }
 
 /* ICONS */
@@ -215,4 +192,3 @@ button:hover {
     0% { background-position: 0 0; }
     100% { background-position: -2304px 0; }
 }
->>>>>>> d093ec6639ce6637de863dd777fb8d5f82918b80:choice_page/categories.css
