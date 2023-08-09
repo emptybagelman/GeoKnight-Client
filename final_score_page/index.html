@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-    <script defer src="./index.js"></script>
+    <script defer type="module" src="./index.js"></script>
 </head>
 
 <body>
@@ -21,12 +21,12 @@
     <main>
         <div id="homepage">Home</div>
         <div id="scoreContainer">
-            <h1 id="current-player"></h1>
-            <h2>Your score is</h2>
+            <!-- <h1 id="current-player"></h1> -->
+            <h2>Your score is:</h2>
             <h3 id="scoreID">0</h3>
         </div>
         <div id="form">
-            <h2>Please create a username</h2>
+            <h2 id="leaderboard">Add to leaderboard:</h2>
             <form id="create-username">
                 <input id="username_input"type="text" name="username" placeholder="username">
                 <input id="submit" type="submit" value="create">
