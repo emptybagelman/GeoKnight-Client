@@ -41,12 +41,15 @@ submitBtn.addEventListener("click", (event) => {
 
     if (selectedAnswer) {
         updateLoop();
+        submitBtn.disabled = "true";
+        submitBtn.style.filter = "brightness(0.7)";
         if (questionData) {
             let correctAnswer = questionData.correctChoice;
             const correctElement = document.getElementById(`option${correctAnswer.slice(-1)}`)
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
                 addToScore();
+                //right answer
                 choiceElement.style.backgroundColor = "#34cb44";
                 choiceElement.style.boxShadow = "0 -5px 0 0 #185d1f inset";
                 updateStat("currHP",8);

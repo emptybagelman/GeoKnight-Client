@@ -82,21 +82,38 @@ main {
 }
 
 img {
+    position: relative;
     width: 600px;
-    margin-left: 200px;
+    right: 0;
+    /* margin-left: 200px; */
 }
 
-#current-player {
+/* #current-player {
     font-size: 60px;
     color: white;
     margin: 0;
     padding: 0;
-}
+} */
 
 h2 {
     font-size: 30px;
     margin-bottom: 0;
     color: white;
+}
+
+#scoreContainer{
+    position: relative;
+}
+
+#scoreContainer>h2{
+    position: relative;
+    top: 20%;
+}
+
+#scoreID{
+    position: relative;
+    outline: solid green 2px;
+    top: 30%;
 }
 
 h3 {
@@ -135,4 +152,43 @@ h3 {
     transition: 0.1s ease-in-out;
     color: black;
     cursor: pointer;
+}
+
+@media only screen and (max-width:1100px){
+    img{
+        width: 70%;
+    }
+    #create-username{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width:700px){
+    main{
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #scoreContainer{
+        width: 100vw;
+        z-index: 2;
+    }
+    #homepage{
+        width: 60px;
+    }
+    #form{
+        z-index: 2;
+    }
+    img{
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
 }

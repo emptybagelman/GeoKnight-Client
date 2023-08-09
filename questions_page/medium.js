@@ -41,6 +41,8 @@ submitBtn.addEventListener("click", (event) => {
 
     if (selectedAnswer) {
         updateLoop();
+        submitBtn.disabled = "true";
+        submitBtn.style.filter = "brightness(0.7)";
         if (questionData) {
             let correctAnswer = questionData.correctChoice;
             const correctElement = document.getElementById(`option${correctAnswer.slice(-1)}`)
