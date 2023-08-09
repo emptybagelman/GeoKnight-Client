@@ -51,7 +51,7 @@ submitBtn.addEventListener("click", (event) => {
                 addToScore();
                 choiceElement.style.backgroundColor = "#34cb44";
                 choiceElement.style.boxShadow = "0 -5px 0 0 #185d1f inset";
-                updateStat("currHP",8);
+                updateStat("maxHP",4);
             } else {
                 console.log(correctElement.textContent)
                 //wrong answer
