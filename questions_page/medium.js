@@ -36,35 +36,48 @@ function checkAnswer(correctAnswer, selectedAnswer) {
 const submitBtn = document.querySelector('#submit-btn');
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
+
+    const choiceElement = document.getElementById(`option${selectedAnswer.slice(-1)}`);
+
     if (selectedAnswer) {
         updateLoop();
         if (questionData) {
             let correctAnswer = questionData.correctChoice;
+            const correctElement = document.getElementById(`option${correctAnswer.slice(-1)}`)
             let isCorrect = checkAnswer(correctAnswer, selectedAnswer); 
             if (isCorrect) {
-                addToScore()
-                updateStat("maxHP",4);
-                updateStat("currHP",4);
-                window.alert('Correct!');
+                addToScore();
+                choiceElement.style.backgroundColor = "#34cb44";
+                choiceElement.style.boxShadow = "0 -5px 0 0 #185d1f inset";
+                updateStat("currHP",8);
             } else {
-                window.alert('Wrong answer!');
+                console.log(correctElement.textContent)
+                //wrong answer
+                choiceElement.style.backgroundColor = "#ff0008";
+                choiceElement.style.boxShadow = "0 -5px 0 0 #690003 inset";
+
+                //right answer
+                correctElement.style.backgroundColor = "#34cb44";
+                correctElement.style.boxShadow = "0 -5px 0 0 #185d1f inset";
             }
 
+            // Proceed to next page (battle or categories)
             if(sessionStorage.getItem("loop") == 3){
                 resetLoop();
                 increaseDifficulty();
-                window.location.href = "../battle/index.html";
+                setTimeout(function() {window.location.href = "../battle/index.html"},2000)
+                // window.location.href = "../battle/index.html";
             }else{
-                window.location.href = "../choice_page/categories.html";
+                setTimeout(function() {window.location.href = "../choice_page/categories.html"},2000)
+                // window.location.href = "../choice_page/categories.html";
             }
-
+            
         } else {
             console.log('Question data not available.');
         }
     } else {
         window.alert('Please select an answer before submitting.');
     }
-    
 });
 
 displayMediumQuestion();
