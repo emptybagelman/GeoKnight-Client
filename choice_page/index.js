@@ -1,4 +1,28 @@
 const categories = document.querySelector('#categories')
+const loadbar = document.getElementById("loading-bar")
+const loadScreen = document.querySelector(".loading-screen")
+const root = document.querySelector(":root")
+
+let loadbarWidth = loadbar.offsetWidth;
+
+loadbar.addEventListener("animationend",() => {
+    loadScreen.style.display = "none";
+})
+
+addEventListener("load",() => {
+    if(Number(sessionStorage.getItem("loop")) === 0 && Number(sessionStorage.getItem("difficulty")) === 0){
+        loadScreen.style.display = "flex";
+    }else{
+        loadScreen.style.display = "none"
+    }
+    addEventListener("resize",()=>{
+        loadbarWidth = loadbar.offsetWidth;
+        root.style.setProperty("--loading-width",loadbarWidth);
+    })
+    root.style.setProperty("--loading-width",loadbarWidth);
+})
+
+
 
 function displayEasy () {
     fetch('https://geoknightbackend.onrender.com/levels/easy')
